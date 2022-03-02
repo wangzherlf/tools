@@ -7,7 +7,7 @@ const Child = memo((props: { val: any; fn: any }) => {
     return <div>{val}</div>
 })
 
-export default () => {
+const Index = () => {
     const [current, { inc, dec, set, reset }] = useCounter(100, { min: 1, max: 10})
     const [cval, setCval] = useState(0)
     return (
@@ -55,3 +55,5 @@ export default () => {
         </div>
     )
 }
+
+export default Index

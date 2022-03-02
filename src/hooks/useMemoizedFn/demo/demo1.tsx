@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import useMemoizedFn from "..";
 
-export default () => {
+const Index = () => {
     const [count, setCount] = useState(0)
 
     const callbackFn = useCallback(() => {
@@ -34,3 +34,5 @@ export default () => {
         </>
     )
 }
+
+export default Index
