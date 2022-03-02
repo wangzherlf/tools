@@ -1,11 +1,11 @@
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 
-type noop = (...args: any[]) => any
+type noop = (this: any, ...args: any[]) => any
 
 /**
  * 持久化函数的hook
  * @param fn 
- * @returns 需要被缓存的函数
+ * @returns 需要持久化的函数
  */
 const useMemoizedFn = <T extends noop>(fn: T) => {
     if (process.env.NODE_ENV === 'development') {
@@ -14,10 +14,14 @@ const useMemoizedFn = <T extends noop>(fn: T) => {
         }
     }
     const fnRef = useRef<T>(fn)
+    // 这里是容易引起歧义的地方 
+    fnRef.current = useMemo(() => fn, [fn])
 
     const momizedRef = useRef<T>()
     if (!momizedRef.current) {
-        momizedRef.current = fnRef.current
+        momizedRef.current = function(this, ...args) {
+            return fnRef.current.apply(this, args)
+        } as T
     }
 
     return momizedRef.current
