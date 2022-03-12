@@ -1,0 +1,46 @@
+html, body, #root {
+  height: 100%;
+  min-height: 100%;
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  font-size: 16px;
+}
+.box {
+  display: flex;
+  height: 100%;
+}
+.left {
+  width: 220px;
+  background-color: #efefef;
+  padding: 20px 0;
+  overflow-y: scroll;
+}
+.right {
+  flex: 1;
+  padding: 20px;
+  overflow-y: scroll;
+}
+ol, li {
+  margin: 0;
+}
+ol > li {
+  padding-bottom: 15px;
+}
+.title {
+  cursor: pointer;
+  font-weight: 500;
+}
+.title.active {
+  color: orangered;
+}
+.title:hover {
+  color: #ff4500a3;
+}
+.small {
+  font-size: 60%;
+  margin: 0;
+  color: #666;
+}

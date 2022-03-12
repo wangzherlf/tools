@@ -19,9 +19,13 @@ const getTargetValue = (value: number, options: Options = {}): number => {
 /**
  * 管理计数器的hook
  * @param initialValue 初始值
- * @param options 最大最小边界
- * @returns hoks
- * @example const [current, { inc, dec, set, reset}] = useCounter(initialValue, { min, max });
+ * @param options min: 最小值, max: 最大值
+ * @returns current 当前值, fn 操作函数 { inc: 加, dec: 减, set: 设置, reset: 重置 }
+ * @example 
+    const [current, { inc, dec, set, reset}] = useCounter(
+      initialValue, 
+      { min, max }
+    );
  */
 const useCounter = (initialValue: number = 0, options: Options = {}) => {
     const { min, max } = options

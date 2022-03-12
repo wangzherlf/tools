@@ -4,8 +4,9 @@ type noop = (this: any, ...args: any[]) => any
 
 /**
  * 持久化函数的hook
- * @param fn 
- * @returns 需要持久化的函数
+ * @param fn 需要持久化的函数
+ * @returns fn 引用地址永远不变的fn
+ * @example const fn = useMemoizedFn<T>(fn: T): T
  */
 const useMemoizedFn = <T extends noop>(fn: T) => {
     if (process.env.NODE_ENV === 'development') {
