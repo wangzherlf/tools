@@ -8,6 +8,7 @@ import UseLatest from './hooks/useLatest/demo/demo1'
 import UseMount from './hooks/useMount/demo/demo1'
 import UseUnmount from './hooks/useUnmount/demo/demo1'
 import UseUnmountedRef from './hooks/useUnmountedRef/demo/demo1'
+import UseSetState from './hooks/useSetState/demo/demo1';
 import './app.css'
 
 function App() {
@@ -54,6 +55,12 @@ function App() {
       title: 'useUnmountedRef',
       description: '获取当前组件是否已经卸载的 Hook',
       components: <UseUnmountedRef />
+    },
+    {
+      type: 'useSetState',
+      title: 'useSetState',
+      description: '管理 object 类型 state 的 Hooks',
+      components: <UseSetState />
     },
   ], [])
   const helper = useMemo(() => [
